@@ -29,7 +29,7 @@ namespace HDKL01
         {
             services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyMethod().AllowAnyHeader()));
             services.AddControllers();
-            services.AddDbContext<QLHOPDONGContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HD01")));
+            services.AddDbContext<QLHopDongContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HD01")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

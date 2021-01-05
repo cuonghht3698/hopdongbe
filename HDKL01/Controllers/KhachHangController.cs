@@ -13,8 +13,8 @@ namespace HDKL01.Controllers
     [ApiController]
     public class KhachHangController : ControllerBase
     {
-        private readonly QLHOPDONGContext _context;
-        public KhachHangController(QLHOPDONGContext context)
+        private readonly QLHopDongContext _context;
+        public KhachHangController(QLHopDongContext context)
         {
             _context = context;
         }
