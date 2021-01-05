@@ -2,6 +2,7 @@
 using HDKL01.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,18 +21,16 @@ namespace HDKL01.Controllers
         }
 
         [HttpGet("getAll")]
-        public Object getLichSu()
+        public async Task<Object> getLichSu()
         {
-            var ls = _context.LichSus.ToList();
-            var data = from l in ls
-                       join ct in _context.ChiTietLichSus on l.Id equals ct.LichSuId
-                       select new { l, ct };
-            return data;
+            var ls = await _context.LichSus.Include(x =>x.ChiTietLichSus).ToListAsync();
+            return ls;
         }
 
         [HttpPost]
         public ActionResult CreateLS(LichSuDTO model)
         {
+            var IdLS = Guid.NewGuid();
             var dataLS = new LichSu
             {
                 BenA = model.BenA,
@@ -48,10 +47,16 @@ namespace HDKL01.Controllers
                 ThoiGianLapDat = model.ThoiGianLapDat,
                 ThoiGianThucHien = model.ThoiGianThucHien,
                 Vat = model.Vat,
-                Id = Guid.NewGuid(),
- 
+                Id = IdLS,
             };
             _context.LichSus.Add(dataLS);
+
+            foreach(ChiTietLichSu item in model.Chitiet)
+            {
+                item.Id = Guid.NewGuid();
+                item.LichSuId = IdLS;
+                _context.ChiTietLichSus.Add(item);
+            }
             _context.SaveChanges();
             return NoContent();
         }

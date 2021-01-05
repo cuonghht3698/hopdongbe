@@ -28,7 +28,9 @@ namespace HDKL01
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyMethod().AllowAnyHeader()));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
             services.AddDbContext<QLHopDongContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HD01")));
         }
 
