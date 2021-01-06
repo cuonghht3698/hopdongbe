@@ -16,5 +16,6 @@ namespace HDKL01.Models
         public string DaiDien { get; set; }
         public string ChucVu { get; set; }
         public string MaKh { get; set; }
+        public string SoTk { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace HDKL01.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-BJJNCTC;Database=QLHOPDONG;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-3NLG68E\\MSS15;Database=QLHOPDONG;Trusted_Connection=True;");
             }
         }
 
@@ -83,6 +83,10 @@ namespace HDKL01.Models
                     .HasColumnName("MaKH");
 
                 entity.Property(e => e.Mst).HasMaxLength(50);
+
+                entity.Property(e => e.SoTk)
+                    .HasMaxLength(30)
+                    .HasColumnName("soTK");
             });
 
             modelBuilder.Entity<LichSu>(entity =>
@@ -105,9 +109,25 @@ namespace HDKL01.Models
 
                 entity.Property(e => e.GiaTriHopDong).HasColumnType("decimal(18, 0)");
 
+                entity.Property(e => e.MaKh)
+                    .HasMaxLength(50)
+                    .HasColumnName("maKH");
+
                 entity.Property(e => e.Mst).HasMaxLength(20);
 
+                entity.Property(e => e.NgayKy)
+                    .HasColumnType("datetime")
+                    .HasColumnName("ngayKy");
+
                 entity.Property(e => e.NgayTao).HasColumnType("datetime");
+
+                entity.Property(e => e.SoHd)
+                    .HasMaxLength(50)
+                    .HasColumnName("soHD");
+
+                entity.Property(e => e.SoTk)
+                    .HasMaxLength(50)
+                    .HasColumnName("soTK");
 
                 entity.Property(e => e.ThoiGianLapDat).HasMaxLength(80);
 

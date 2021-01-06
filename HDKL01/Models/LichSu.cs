@@ -28,6 +28,10 @@ namespace HDKL01.Models
         public decimal? GiaTriHopDong { get; set; }
         public DateTime? NgayTao { get; set; }
         public bool? TrangThai { get; set; }
+        public string SoTk { get; set; }
+        public string MaKh { get; set; }
+        public string SoHd { get; set; }
+        public DateTime? NgayKy { get; set; }
 
         public virtual ICollection<ChiTietLichSu> ChiTietLichSus { get; set; }
     }

@@ -23,7 +23,10 @@ namespace HDKL01.DTO
         public decimal? Vat { get; set; }
         public decimal? GiaTriHopDong { get; set; }
         public DateTime? NgayTao { get; set; }
-
+        public string maKH { get; set; }
+        public string soTK { get; set; }
+        public string soHD { get; set; }
+        public DateTime ngayKy { get; set; }
         public List<ChiTietLichSu> Chitiet { get; set; }
     }
 }

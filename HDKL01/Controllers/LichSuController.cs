@@ -54,7 +54,11 @@ namespace HDKL01.Controllers
                 ThoiGianThucHien = model.ThoiGianThucHien,
                 Vat = model.Vat,
                 Id = IdLS,
-                TrangThai = false
+                TrangThai = false,
+                MaKh = model.maKH,
+                SoHd = model.soHD,
+                SoTk = model.soTK,
+                NgayKy = model.ngayKy,
             };
             _context.LichSus.Add(dataLS);
 
