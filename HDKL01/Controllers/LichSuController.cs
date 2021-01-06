@@ -59,6 +59,7 @@ namespace HDKL01.Controllers
                 SoHd = model.soHD,
                 SoTk = model.soTK,
                 NgayKy = model.ngayKy,
+                TenCt = model.tenCT
             };
             _context.LichSus.Add(dataLS);
 

@@ -27,7 +27,7 @@ namespace HDKL01.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-3NLG68E\\MSS15;Database=QLHOPDONG;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-BJJNCTC;Database=QLHOPDONG;Trusted_Connection=True;");
             }
         }
 
@@ -128,6 +128,10 @@ namespace HDKL01.Models
                 entity.Property(e => e.SoTk)
                     .HasMaxLength(50)
                     .HasColumnName("soTK");
+
+                entity.Property(e => e.TenCt)
+                    .HasMaxLength(200)
+                    .HasColumnName("tenCT");
 
                 entity.Property(e => e.ThoiGianLapDat).HasMaxLength(80);
 

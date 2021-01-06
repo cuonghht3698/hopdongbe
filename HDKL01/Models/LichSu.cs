@@ -32,6 +32,7 @@ namespace HDKL01.Models
         public string MaKh { get; set; }
         public string SoHd { get; set; }
         public DateTime? NgayKy { get; set; }
+        public string TenCt { get; set; }
 
         public virtual ICollection<ChiTietLichSu> ChiTietLichSus { get; set; }
     }

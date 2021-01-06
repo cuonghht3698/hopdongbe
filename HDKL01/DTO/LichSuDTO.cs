@@ -26,6 +26,7 @@ namespace HDKL01.DTO
         public string maKH { get; set; }
         public string soTK { get; set; }
         public string soHD { get; set; }
+        public string tenCT { get; set; }
         public DateTime ngayKy { get; set; }
         public List<ChiTietLichSu> Chitiet { get; set; }
     }
