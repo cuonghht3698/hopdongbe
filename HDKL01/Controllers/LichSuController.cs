@@ -23,7 +23,7 @@ namespace HDKL01.Controllers
         [HttpGet("getAll")]
         public async Task<Object> getLichSu()
         {
-            var ls = await _context.LichSus.Include(x =>x.ChiTietLichSus).OrderBy(x =>x.TrangThai).ToListAsync();
+            var ls = await _context.LichSus.Include(x =>x.ChiTietLichSus).ToListAsync();
             return ls;
         }
 
