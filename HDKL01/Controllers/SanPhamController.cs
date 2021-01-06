@@ -13,8 +13,8 @@ namespace HDKL01.Controllers
     [ApiController]
     public class SanPhamController : ControllerBase 
     {
-        private readonly QLHopDongContext _context;
-        public SanPhamController(QLHopDongContext context)
+        private readonly QLHOPDONGContext _context;
+        public SanPhamController(QLHOPDONGContext context)
         {
             _context = context;
         }

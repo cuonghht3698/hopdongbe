@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace HDKL01.Models
 {
-    public partial class QLHopDongContext : DbContext
+    public partial class QLHOPDONGContext : DbContext
     {
-        public QLHopDongContext()
+        public QLHOPDONGContext()
         {
         }
 
-        public QLHopDongContext(DbContextOptions<QLHopDongContext> options)
+        public QLHOPDONGContext(DbContextOptions<QLHOPDONGContext> options)
             : base(options)
         {
         }
@@ -27,7 +27,7 @@ namespace HDKL01.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-3NLG68E\\MSS15;Database=QLHopDong;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-BJJNCTC;Database=QLHOPDONG;Trusted_Connection=True;");
             }
         }
 
@@ -77,6 +77,10 @@ namespace HDKL01.Models
                 entity.Property(e => e.DiaChi).HasMaxLength(250);
 
                 entity.Property(e => e.DienThoai).HasMaxLength(100);
+
+                entity.Property(e => e.MaKh)
+                    .HasMaxLength(50)
+                    .HasColumnName("MaKH");
 
                 entity.Property(e => e.Mst).HasMaxLength(50);
             });

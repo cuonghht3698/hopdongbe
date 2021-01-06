@@ -14,8 +14,8 @@ namespace HDKL01.Controllers
     [ApiController]
     public class LichSuController : ControllerBase
     {
-        private readonly QLHopDongContext _context;
-        public LichSuController(QLHopDongContext context)
+        private readonly QLHOPDONGContext _context;
+        public LichSuController(QLHOPDONGContext context)
         {
             _context = context;
         }
@@ -23,10 +23,16 @@ namespace HDKL01.Controllers
         [HttpGet("getAll")]
         public async Task<Object> getLichSu()
         {
-            var ls = await _context.LichSus.Include(x =>x.ChiTietLichSus).ToListAsync();
+            var ls = await _context.LichSus.Include(x =>x.ChiTietLichSus).OrderBy(x =>x.TrangThai).ToListAsync();
             return ls;
         }
 
+        [HttpGet("{id}")]
+        public async Task<Object> getById(Guid Id)
+        {
+            var ls = await _context.LichSus.Where(x =>x.Id == Id).Include(x => x.ChiTietLichSus).ToListAsync();
+            return ls;
+        }
         [HttpPost]
         public ActionResult CreateLS(LichSuDTO model)
         {
@@ -48,6 +54,7 @@ namespace HDKL01.Controllers
                 ThoiGianThucHien = model.ThoiGianThucHien,
                 Vat = model.Vat,
                 Id = IdLS,
+                TrangThai = false
             };
             _context.LichSus.Add(dataLS);
 

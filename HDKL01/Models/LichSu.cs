@@ -27,6 +27,7 @@ namespace HDKL01.Models
         public decimal? Vat { get; set; }
         public decimal? GiaTriHopDong { get; set; }
         public DateTime? NgayTao { get; set; }
+        public bool? TrangThai { get; set; }
 
         public virtual ICollection<ChiTietLichSu> ChiTietLichSus { get; set; }
     }

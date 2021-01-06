@@ -13,9 +13,9 @@ namespace HDKL01.Controllers
     [ApiController]
     public class ImagesController : ControllerBase
     {
-        private readonly QLHopDongContext _context;
+        private readonly QLHOPDONGContext _context;
 
-        public ImagesController(QLHopDongContext context)
+        public ImagesController(QLHOPDONGContext context)
         {
             _context = context;
         }

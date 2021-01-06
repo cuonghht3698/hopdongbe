@@ -13,8 +13,8 @@ namespace HDKL01.Controllers
     [ApiController]
     public class KhachHangController : ControllerBase
     {
-        private readonly QLHopDongContext _context;
-        public KhachHangController(QLHopDongContext context)
+        private readonly QLHOPDONGContext _context;
+        public KhachHangController(QLHOPDONGContext context)
         {
             _context = context;
         }
@@ -38,7 +38,7 @@ namespace HDKL01.Controllers
         [Route("checkdoitac")]
         public ActionResult getBySdt(Khachhang model)
         {
-            var check = _context.Khachhangs.Where(x => x.BenA == model.BenA).Where(x => x.DaiDien == model.DaiDien).Where(x => x.ChucVu == model.ChucVu).
+            var check = _context.Khachhangs.Where(x => x.MaKh == model.MaKh).Where(x => x.BenA == model.BenA).Where(x => x.DaiDien == model.DaiDien).Where(x => x.ChucVu == model.ChucVu).
                Where(x => x.DiaChi == model.DiaChi).Where(x => x.DienThoai == model.DienThoai).Where(x => x.Mst == model.Mst).ToList();
             if (check.Count > 0)
             {

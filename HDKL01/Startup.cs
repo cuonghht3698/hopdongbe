@@ -31,7 +31,7 @@ namespace HDKL01
             services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
-            services.AddDbContext<QLHopDongContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HD01")));
+            services.AddDbContext<QLHOPDONGContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HD01")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
